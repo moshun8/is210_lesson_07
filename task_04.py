@@ -6,10 +6,9 @@
 import data
 
 
-data.BANDS['Buckingham Nicks'] = {'Lindsey Buckingham': [
-    'guitar', 'vocals'], 'Stevie Nicks': [
-    'vocals', 'tambourine']}
+data.BANDS['Buckingham Nicks'] = {
+    'Lindsey Buckingham': ['guitar', 'vocals'],
+    'Stevie Nicks': ['vocals', 'tambourine']}
 
-AddToFM = data.BANDS['Buckingham Nicks']
-data.BANDS.pop('Buckingham Nicks')
-data.BANDS['Fleetwood Mac'].update(AddToFM)
+#  Not supposed to delete and readd, only update
+data.BANDS['Fleetwood Mac'].update(data.BANDS['Buckingham Nicks'])
