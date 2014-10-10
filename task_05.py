@@ -6,6 +6,4 @@
 import data
 
 
-#change to wolverine without copying or altering original
 data.SUPERHEROES['Logan']['alias'] = 'Wolverine'
-print data.SUPERHEROES['Logan']
