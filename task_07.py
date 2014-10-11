@@ -17,8 +17,9 @@ DATA = {
 }
 
 
-def iter_dict_funky_sum(weekend):
+def iter_dict_funky_sum(DATA):
+    """add it up"""
     running_total = 0
     for first, second in DATA.iteritems():
         running_total += second - first
-    return running_total
+	return running_total
