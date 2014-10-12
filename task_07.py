@@ -34,9 +34,9 @@ DATA = {
 }
 
 
-def iter_dict_funky_sum(DATA):
+def iter_dict_funky_sum(something):
     """add it up"""
     running_total = 0
-    for first, second in DATA.iteritems():
+    for first, second in something.iteritems():
         running_total += second - first
     return running_total

@@ -8,7 +8,8 @@ from data import FRUIT
 
 def get_cost_per_item(shoplist):
     """how much items cost"""
-    return {item: nums * FRUIT.get(item) for item, nums in shoplist.iteritems() if item in FRUIT}
+    return {item: nums * FRUIT.get(
+    	item) for item, nums in shoplist.iteritems() if item in FRUIT}
 
 
 def get_total_cost(shoplist):
