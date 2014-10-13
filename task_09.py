@@ -1,41 +1,41 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Merging Data"""
+"""Merging data"""
 
 
 import task_09_utility
 
 
-DATA_FILES = [{
-    'data': 'task_09_data/router_01.csv'},
+DATA_FILES = [
+    {'data': 'task_09_data/router_01.csv'},
     {'data': 'task_09_data/router_02.csv'},
-    {'data': 'task_09_data/router_03.csv'}]
+    {'data': 'task_09_data/router_03.csv'}
+]
 
 
-def load_data(the_data):
-    """loads data"""
+def load_data(datalist):
+    """accepts the DATA_FILES"""
+    datadict = {}
     counter = 0
-    new_dict = {}
-    for thing in the_data:
-        new_dict[counter] = task_09_utility.get_data(thing['data'])
+    for info in datalist:
         counter += 1
-    return new_dict
+        datadict[counter] = task_09_utility.get_data(info['data'])
+    return datadict
 
 
-def merge_data(something):
+def merge_data(routerdict):
+    """merging data"""
     merged = {}
-    for key, router_info in something.iteritems():
-        clock = router_info['clock']
-        day = clock[8:10]
-        hour = clock[11:13]
-        candidate_key = [day, hour]
-        if candidate_key in merged:
-            lst = merged[candidate_key, key['clock'], key['value_avg']]
-        else:
-            lst = [clock, 0, 0, 0]
-    sorted_dict = task_09_utility.sort_dict(merged)
-    return sorted_dict
-
-
-loaded_data = load_data(DATA_FILES)
-print merge_data(loaded_data)
+    for rout_key, csv_info in routerdict.iteritems():
+        for info in csv_info:
+            clock = info.get('clock')
+            month = clock[8:10]
+            hour = clock[11:13]
+            candidate_key = month, hour
+            if candidate_key in merged:
+                lst = merged[candidate_key]
+            else:
+                lst = [clock, 0, 0, 0]
+            lst[rout_key] = info.get('value_avg')
+            merged[candidate_key] = lst
+    return task_09_utility.sort_dict(merged)
